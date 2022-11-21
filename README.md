@@ -10,7 +10,7 @@ Sprawdzamy dla jakich platform sprzętowych jest dostępny obraz "node:alpine":<
 Za pomocą buildx budujemy obraz bez wybierania platform sprzętowych:<br />
 ``` docker buildx build -t docker.io/adrianszafranski/spr5:etap1.v1 --push . ```<br />
 ![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap1_budowaniePierwszegoObrazu.png)<br /><br />
-Budując w ten sposób obraz, obraz został tworzony tylko dla jednej platformy sprzętowej:<br />
+Budując w ten sposób obraz, obraz został tworzony tylko dla jednej platformy sprzętowej (dla platformy, na której obraz został utworzony):<br />
 ```docker manifest inspect -v docker.io/adrianszafranski/spr5:etap1.v1 | jq '.Descriptor.platform'```<br />
 ![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap1_platformyPierwszegoObrazu.png)<br /><br />
 ### Część 2
@@ -42,11 +42,21 @@ Budujemy plik docker-compose.yml, który deklaruje użycie dwóch serwisów, red
 ### Część 3
 Uruchamiamy aplikacje:<br />
 ```docker compose up -d```<br />
-![wykonanie komend](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_uruchamianieUtworzonejAplikacji.png)<br /><br />
+![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_uruchamianieUtworzonejAplikacji.png)<br /><br />
 Prezentujemy działanie aplikacji:<br />
 ![prezentacja dzialania](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_prezentacjaDzialaniaUtworzonejAplikacji_cz1.png)<br />
 Odświeżamy stronę<br /><br />
 ![prezentacja dzialania](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_prezentacjaDzialaniaUtworzonejAplikacji_cz2.png)<br />
 
 
+## Etap3
 
+Aby możliwe było przegotowanie aplikacji na inną platformę sprzętową niż architektura wykorzystywanego hosta (komputera) trzeba użyc komendy: <br />
+```docker buildx bake -f docker-compose.yml --set *.platform=linux/ppc64le --push --set=*.output=type=image,name=docker.io/adrianszafranski/spr5:etap3.v1,push=true```<br />
+![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap3_wykonanieKomendy.png)<br />
+Stworzyliśmy aplikacje dla linux/ppc64le. Aby sprawdzić czy operacja zadziałała prawidłowo wpisujemy:<br />
+```docker manifest inspect -v docker.io/adrianszafranski/spr5:etap3.v1 | jq '.Descriptor.platform'```<br />
+![prezentacja dzialania](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap3_wynik.png)<br />
+
+## Link do repozytorium DockerHub
+https://hub.docker.com/r/adrianszafranski/spr5
