@@ -33,3 +33,20 @@ Sprawdzamy czy zbudowany obraz wspiera wybrane architektury sprzętowe:<br />
  ```docker manifest inspect -v docker.io/adrianszafranski/spr5:etap1.v2 | jq '.[].Descriptor.platform'```
 ![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap1_platformyDrugiegoObrazu.png)<br /><br />
 
+## Etap2
+
+### Część 1 i 2
+Budujemy plik docker-compose.yml, który deklaruje użycie dwóch serwisów, redis oraz app gdzie app oznacza kontener BUDOWANY na bazie dostarczonego pliku Dockerfile:
+[plik docker-compose.yml](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/Dockerfile)<br /><br />
+
+### Część 3
+Uruchamiamy aplikacje:<br />
+```docker compose up -d```<br />
+![wykonanie komend](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_uruchamianieUtworzonejAplikacji.png)<br /><br />
+Prezentujemy działanie aplikacji:<br />
+![prezentacja dzialania](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_prezentacjaDzialaniaUtworzonejAplikacji_cz1.png)<br />
+Odświeżamy stronę<br /><br />
+![prezentacja dzialania](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap2_prezentacjaDzialaniaUtworzonejAplikacji_cz2.png)<br />
+
+
+
