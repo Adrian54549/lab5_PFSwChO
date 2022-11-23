@@ -37,7 +37,7 @@ Sprawdzamy czy zbudowany obraz wspiera wybrane architektury sprzętowe:<br />
 
 ### Część 1 i 2
 Budujemy plik docker-compose.yml, który deklaruje użycie dwóch serwisów, redis oraz app gdzie app oznacza kontener BUDOWANY na bazie dostarczonego pliku Dockerfile:
-[plik docker-compose.yml](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/Dockerfile)<br /><br />
+[plik docker-compose.yml](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/docker-compose.yml)<br /><br />
 
 ### Część 3
 Uruchamiamy aplikacje:<br />
