@@ -52,7 +52,7 @@ Odświeżamy stronę<br /><br />
 ## Etap3
 
 Aby możliwe było przegotowanie aplikacji na inną platformę sprzętową niż architektura wykorzystywanego hosta (komputera) trzeba użyc komendy: <br />
-```docker buildx bake -f docker-compose.yml --set *.platform=linux/ppc64le --push --set=*.output=type=image,name=docker.io/adrianszafranski/spr5:etap3.v1,push=true```<br />
+```docker buildx bake -f docker-compose.yml --set *.platform=linux/ppc64le --set=*.output=type=image,name=docker.io/adrianszafranski/spr5:etap3.v1,push=true```<br />
 ![wykonanie komendy](https://github.com/Adrian54549/lab5_PFSwChO/blob/main/screenshots/etap3_wykonanieKomendy.png)<br />
 Stworzyliśmy aplikacje dla linux/ppc64le. Aby sprawdzić czy operacja zadziałała prawidłowo wpisujemy:<br />
 ```docker manifest inspect -v docker.io/adrianszafranski/spr5:etap3.v1 | jq '.Descriptor.platform'```<br />
